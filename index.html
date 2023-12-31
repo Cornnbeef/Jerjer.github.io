@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para kay Andrea lang</title>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Indie Flower', cursive;
+            background: url('https://media1.tenor.com/m/SOHCZYwonooAAAAC/mochi-mochi-peach-cat-heart.gif') fixed center;
+            background-size: 90% 90%;
+            color: #fff;
+            flex-direction: column;
+            position: relative;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        #heart-container-top {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 100px;
+            height: 100px;
+            transform: rotate(-45deg);
+            z-index: 1;
+        }
+
+        #heart-top::before,
+        #heart-top::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 52px;
+            height: 80px;
+            background-color: red;
+            border-radius: 50px 50px 0 0;
+        }
+
+        #heart-top::before {
+            left: 50px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        #heart-top::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        .heart-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 16px;
+            color: #000;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        #heart-container-bottom {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 100px;
+            height: 100px;
+            transform: rotate(-45deg);
+            z-index: 1;
+        }
+
+        #heart-bottom::before,
+        #heart-bottom::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 52px;
+            height: 80px;
+            background-color: red;
+            border-radius: 50px 50px 0 0;
+        }
+
+        #heart-bottom::before {
+            left: 50px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        #heart-bottom::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        #question {
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #000;
+        }
+
+        #buttons {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .mag-yes {
+            position: absolute;
+            font-size: 24px;
+            color: #ff4081;
+            font-weight: bold;
+        }
+
+        .top-left {
+            top: 20px;
+            left: 20px;
+        }
+
+        .bottom-right {
+            bottom: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="heart-container-top" class="heart-container">
+        <div id="heart-top" class="heart"></div>
+        <div class="heart-text">Andrea</div>
+    </div>
+
+    <div id="heart-container-bottom" class="heart-container">
+        <div id="heart-bottom" class="heart"></div>
+        <div class="heart-text">Andrea</div>
+    </div>
+
+    <div id="question">
+        <p style="margin: 0;">Today is the start of a new year, and I wanna spend my 2024 with you. So, I just want to ask you: can we hang out sometime?</p>
+    </div>
+
+    <div id="buttons">
+        <button onclick="redirectToThanksPage()">Yes</button>
+        <button onclick="moveNoButton()">No</button>
+    </div>
+
+    <!-- "Mag yes na yan" in different positions -->
+    <div class="mag-yes top-left">Mag yes na yan</div>
+    <div class="mag-yes bottom-right">Mag yes na yan</div>
+
+    <script>
+        function moveNoButton() {
+            var noButton = document.querySelector('button:nth-child(2)');
+            var maxX = window.innerWidth - noButton.offsetWidth;
+            var maxY = window.innerHeight - noButton.offsetHeight;
+
+            var randomX = Math.floor(Math.random() * maxX);
+            var randomY = Math.floor(Math.random() * maxY);
+
+            noButton.style.position = 'absolute';
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+        }
+
+        function redirectToThanksPage() {
+            window.location.href = 'thanks.html';
+        }
+    </script>
+
+</body>
+</html>
